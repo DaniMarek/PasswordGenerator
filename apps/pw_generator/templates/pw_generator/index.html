@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Password Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/pw_generator/styles.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	
+</head>
+<body>
+
+	<div class="container-fluid bg-1">
+		<h2>Can't come up with a secure password for your device? Use the following recommendations! See if there is one you like!</h2>
+	</div>	
+	<div class="container-fluid bg-2">
+		<h3>New Password (attempt #{{request.session.clicks}})</h3>
+		<h1>{{word}}</h1>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3">
+				<form action="/new" method="post">
+				{% csrf_token %}
+					<button class="btn btn-lg" type="submit" name="new">New Password</button>
+				</form>
+			</div>
+			<div class="col-sm-3">
+				<form action="/reset" method="post">
+					{% csrf_token %}
+					<button class="btn btn-lg" type="submit" name="reset">Reset</button>
+				</form>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+	<div class="container-fluid bg-3">
+		<p>Based on a random number algorithm I learned in Python, this application was created to produce passwords that are secure and effective. I used Ubuntu Bash to test the algorithm. I used a CSRF token to create a form resubmission notice that pops up when the page is refreshed. I chose to use Bootstrap for my front end for practice since I was learning it. I originally deployed the application to AWS using Ubuntu Bash shell scripting. It is currently hosted via GitHub.</p>
+	</div>
+</body>
+</html>
