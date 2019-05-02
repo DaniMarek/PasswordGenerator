@@ -1,1 +1,1 @@
-web: gunicorn Password_Generator.wsgi --log-file -
+web: gunicorn Password_Generator.wsgi
