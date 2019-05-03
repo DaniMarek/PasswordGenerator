@@ -1,1 +1,0 @@
-web: gunicorn Password_Generator.wsgi
